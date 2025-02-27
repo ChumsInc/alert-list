@@ -2,7 +2,7 @@
   "compilerOptions": {
     "allowJs": true,
     "allowSyntheticDefaultImports": true,
-    "baseUrl": "./src",
+    "declaration": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "isolatedModules": true,
@@ -17,18 +17,13 @@
     "noEmit": false,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
-    "paths": {
-      "_src/*": ["./*"],
-      "_app/*": ["./app/*"],
-      "_components/*": ["./components/*"],
-      "_ducks/*": ["./ducks/*"],
-      "_types/*": ["./types/*"],
-    },
+    "outDir": "./dist/",
     "resolveJsonModule": true,
     "skipLibCheck": true,
     "sourceMap": true,
     "strict": true,
     "target": "es2020"
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*"],
+  "exclude": ["node_modules"]
 }

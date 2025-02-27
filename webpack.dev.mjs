@@ -11,18 +11,24 @@ const localProxy = {
 };
 
 export default merge(common, {
+    entry: './test/index.tsx',
     mode: 'development',
     devServer: {
         allowedHosts: 'auto',
-        static: [
-            {directory: path.join(process.cwd(), 'public'), watch: false},
-            {directory: path.join(process.cwd()), watch: false}
-        ],
+        static: {
+            directory: path.join(process.cwd(), 'public'),
+            serveIndex: true,
+            watch: false,
+        },
         hot: true,
+        port: 3000,
         proxy: [
             {context: ['/api'], ...localProxy},
         ],
-        watchFiles: path.join(process.cwd(), 'src/**/*')
+        watchFiles: [
+            path.join(process.cwd(), 'src/**/*'),
+            path.join(process.cwd(), 'test/**/*')
+        ]
     },
     devtool: 'inline-source-map',
     plugins: []

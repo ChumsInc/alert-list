@@ -1,26 +1,22 @@
 {
-  "name": "app-name",
-  "version": "1.1.1",
-  "dependencies": {
-    "@emotion/react": "^11.14.0",
-    "@reduxjs/toolkit": "^2.0.1",
-    "chums-types": "github:ChumsInc/chums-types",
-    "chums-ui-utils": "github:ChumsInc/chums-ui-utils",
-    "classnames": "^2.3.2",
-    "dayjs": "^1.11.10",
-    "decimal.js": "^10.4.3",
+  "name": "alert-list",
+  "version": "2.0.0",
+  "main": "./dist/index.js",
+  "source": "./src/index.tsx",
+  "types": "./dist/index.d.ts",
+  "peerDependencies": {
+    "@reduxjs/toolkit": "^2.5.1",
+    "classnames": "*",
     "numeral": "^2.0.6",
-    "react": "^19.0.0",
-    "react-bootstrap": "^2.10.5",
-    "react-dom": "^19.0.0",
-    "react-error-boundary": "^5.0.0",
-    "react-redux": "^9.0.4",
-    "redux": "^5.0.1",
-    "sortable-tables": "github:ChumsInc/sortable-tables"
+    "react": ">=18.1.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": ">=18.1.0"
   },
   "scripts": {
-    "start": "webpack serve --config webpack.dev.mjs --progress",
-    "build": "webpack --config webpack.prod.mjs --progress",
+    "clean": "rimraf dist/",
+    "compile": "tsc",
+    "dev": "webpack serve --config webpack.dev.mjs --progress",
+    "build": "npm run clean && npm run compile",
     "version": "auto-changelog -p && git add CHANGELOG.md"
   },
   "browserslist": {
@@ -36,24 +32,30 @@
     ]
   },
   "devDependencies": {
-    "@eslint/js": "^9.8.0",
+    "@eslint/js": "^9.21.0",
+    "@reduxjs/toolkit": "^2.6.0",
     "@types/node": "^22.1.0",
     "@types/numeral": "^2.0.3",
-    "@types/react": "^19.0.7",
-    "@types/react-dom": "^19.0.3",
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
     "auto-changelog": "^2.4.0",
     "bootstrap": "^5.3.2",
     "bootstrap-icons": "^1.11.1",
     "css-loader": "^7.1.2",
-    "eslint": "^9.8.0",
-    "eslint-plugin-react": "^7.35.0",
-    "globals": "^15.9.0",
+    "globals": "^15.15.0",
+    "numeral": "^2.0.6",
+    "react": "^19.0.0",
+    "react-bootstrap": "^2.10.9",
+    "react-dom": "^19.0.0",
+    "react-redux": "^9.2.0",
+    "redux": "^5.0.1",
+    "rimraf": "^6.0.1",
     "sass-loader": "^16.0.0",
     "style-loader": "^4.0.0",
     "terser-webpack-plugin": "^5.3.9",
     "ts-loader": "^9.4.4",
     "typescript": "^5.2.2",
-    "typescript-eslint": "^8.0.1",
+    "typescript-eslint": "^8.25.0",
     "webpack": "^5.88.2",
     "webpack-bundle-analyzer": "^4.9.1",
     "webpack-cli": "^6.0.1",
@@ -67,7 +69,22 @@
     "commitLimit": false,
     "breakingPattern": "BREAKING CHANGE:"
   },
-  "overrides": {
-    "eslint": "^9.8.0"
-  }
+  "description": "A redux slice/reducer for managing & rendering alerts",
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ChumsInc/alert-list.git"
+  },
+  "keywords": [
+    "Bootstrap",
+    "Alert"
+  ],
+  "author": "Steve Montgomery",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ChumsInc/alert-list/issues"
+  },
+  "homepage": "https://github.com/ChumsInc/alert-list#readme"
 }
