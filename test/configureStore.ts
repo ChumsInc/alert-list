@@ -1,7 +1,7 @@
 import {combineReducers} from "redux";
-import {alertsSlice} from "../src";
 import {configureStore} from "@reduxjs/toolkit";
 import {TypedUseSelectorHook, useDispatch, useSelector} from "react-redux";
+import {alertsSlice} from "../src";
 
 const rootReducer = combineReducers({
     [alertsSlice.reducerPath]: alertsSlice.reducer,

@@ -8,8 +8,6 @@ import {
 } from "@reduxjs/toolkit";
 import {StyledErrorAlert} from "./alert-types";
 
-
-
 export const alertsAdapter = createEntityAdapter<StyledErrorAlert, number>({
     selectId: (alert) => alert.id,
     sortComparer: (a, b) => a.id - b.id,
@@ -18,7 +16,7 @@ export const alertsAdapter = createEntityAdapter<StyledErrorAlert, number>({
 const alertsSelectors = alertsAdapter.getSelectors();
 
 
-interface AlertsExtraState {
+export interface AlertsExtraState {
     nextId: number;
 }
 
@@ -39,11 +37,21 @@ const alertsSlice = createSlice({
                 }
             }
             state.nextId += 1;
-            alertsAdapter.addOne(state, {...action.payload, message: action.payload.message ?? 'Unknown error', count: 1, id: state.nextId});
+            alertsAdapter.addOne(state, {
+                ...action.payload,
+                message: action.payload.message ?? 'Unknown error',
+                count: 1,
+                id: state.nextId
+            });
         },
-        addError: (state, action: PayloadAction<Error|SerializedError>) => {
+        addError: (state, action: PayloadAction<Error | SerializedError>) => {
             state.nextId += 1;
-            alertsAdapter.addOne(state, {...action.payload, message: `[${action.payload.name ?? 'Unknown'}] ${action.payload.message}`, count: 1, id: state.nextId});
+            alertsAdapter.addOne(state, {
+                ...action.payload,
+                message: `[${action.payload.name ?? 'Unknown'}] ${action.payload.message}`,
+                count: 1,
+                id: state.nextId
+            });
         },
         dismissAlert: (state, action: PayloadAction<Partial<Pick<StyledErrorAlert, 'id' | 'context'>>>) => {
             if (action.payload.id) {

@@ -20,11 +20,21 @@ const alertsSlice = createSlice({
                 }
             }
             state.nextId += 1;
-            alertsAdapter.addOne(state, { ...action.payload, message: action.payload.message ?? 'Unknown error', count: 1, id: state.nextId });
+            alertsAdapter.addOne(state, {
+                ...action.payload,
+                message: action.payload.message ?? 'Unknown error',
+                count: 1,
+                id: state.nextId
+            });
         },
         addError: (state, action) => {
             state.nextId += 1;
-            alertsAdapter.addOne(state, { ...action.payload, message: `[${action.payload.name ?? 'Unknown'}] ${action.payload.message}`, count: 1, id: state.nextId });
+            alertsAdapter.addOne(state, {
+                ...action.payload,
+                message: `[${action.payload.name ?? 'Unknown'}] ${action.payload.message}`,
+                count: 1,
+                id: state.nextId
+            });
         },
         dismissAlert: (state, action) => {
             if (action.payload.id) {
@@ -73,4 +83,4 @@ const alertsSlice = createSlice({
 export const { addAlert, dismissAlert } = alertsSlice.actions;
 export const { selectAllAlerts, selectAlertById, selectAlertByContext, } = alertsSlice.selectors;
 export default alertsSlice;
-//# sourceMappingURL=reducer.js.map
+//# sourceMappingURL=alertsSlice.js.map
