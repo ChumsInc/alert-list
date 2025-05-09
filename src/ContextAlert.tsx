@@ -3,7 +3,7 @@ import React from 'react';
 import Alert, {AlertProps} from 'react-bootstrap/Alert'
 import Badge from "react-bootstrap/Badge";
 import numeral from "numeral";
-import {StyledErrorAlert} from "./alert-types";
+import type {StyledErrorAlert} from "./alert-types";
 
 export interface ContextAlertProps extends Pick<StyledErrorAlert, 'context' | 'count'>, AlertProps {
     children?: React.ReactNode;

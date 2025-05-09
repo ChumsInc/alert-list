@@ -1,5 +1,5 @@
 import { PayloadAction, SerializedError } from "@reduxjs/toolkit";
-import { StyledErrorAlert } from "./alert-types";
+import type { StyledErrorAlert } from "./alert-types";
 export declare const alertsAdapter: import("@reduxjs/toolkit").EntityAdapter<StyledErrorAlert, number>;
 export interface AlertsExtraState {
     nextId: number;

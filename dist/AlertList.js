@@ -1,7 +1,7 @@
 "use client";
 import { jsx as _jsx } from "react/jsx-runtime";
-import ContextAlert from "./ContextAlert";
-import { isFilterFunction } from "./utils";
+import ContextAlert from "./ContextAlert.js";
+import { isFilterFunction } from "./utils.js";
 export default function AlertList({ list, contextFilter, onDismiss, alertProps }) {
     return (_jsx("div", { children: list
             .filter(errorAlert => !contextFilter

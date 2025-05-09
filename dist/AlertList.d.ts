@@ -1,4 +1,4 @@
-import { ContextFilter, StyledErrorAlert } from "./alert-types";
+import type { ContextFilter, StyledErrorAlert } from "./alert-types";
 import { AlertProps } from 'react-bootstrap/Alert';
 export interface AlertListProps {
     list: StyledErrorAlert[];

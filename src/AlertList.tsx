@@ -1,8 +1,8 @@
 "use client";
 import React from 'react';
-import ContextAlert from "./ContextAlert";
-import {ContextFilter, StyledErrorAlert} from "./alert-types";
-import {isFilterFunction} from "./utils";
+import ContextAlert from "./ContextAlert.js";
+import type {ContextFilter, StyledErrorAlert} from "./alert-types";
+import {isFilterFunction} from "./utils.js";
 import {AlertProps} from 'react-bootstrap/Alert'
 
 
