@@ -1,6 +1,6 @@
 "use client";
-export { default as alertsSlice } from './alertsSlice.js';
-export { selectAlertById, selectAlertByContext, dismissAlert, addAlert, selectAllAlerts, alertsAdapter, alertsExtraState } from './alertsSlice.js';
-export { default as AlertList } from './AlertList.js';
-export { isErrorAlert, isFilterFunction } from './utils.js';
+export { default as alertsSlice } from './alertsSlice';
+export { selectAlertById, selectAlertByContext, dismissAlert, addAlert, selectAllAlerts, alertsAdapter, alertsExtraState } from './alertsSlice';
+export { default as AlertList } from './AlertList';
+export { isErrorAlert, isFilterFunction } from './utils';
 //# sourceMappingURL=index.js.map
