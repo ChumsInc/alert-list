@@ -16,7 +16,7 @@ export default function ContextAlert({context, count, children, ...alertProps}: 
                 <Alert.Heading>
                     {context}
                     {count > 1 && (
-                        <Badge bg={alertProps.variant} className="ms-1">{numeral(count).format('0,0')}</Badge>
+                        <Badge bg={alertProps.variant} pill className="ms-1">{numeral(count).format('0,0')}</Badge>
                     )}
                 </Alert.Heading>
             )}
