@@ -1,6 +1,6 @@
 {
   "name": "@chumsinc/alert-list",
-  "version": "2.1.0",
+  "version": "2.1.1",
   "main": "./dist/index.js",
   "source": "./src/index.tsx",
   "types": "./dist/index.d.ts",
