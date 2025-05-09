@@ -18,5 +18,5 @@ export interface StyledErrorAlert extends ErrorAlert {
     variant?: Variant
 }
 
-export type ContextFilterFunction = (alerts: StyledErrorAlert) => boolean;
+export type ContextFilterFunction = (alert: StyledErrorAlert) => boolean;
 export type ContextFilter = string | ContextFilterFunction;

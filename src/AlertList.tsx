@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 import ContextAlert from "./ContextAlert";
 import {ContextFilter, StyledErrorAlert} from "./alert-types";

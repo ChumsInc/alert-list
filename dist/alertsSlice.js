@@ -30,6 +30,7 @@ const alertsSlice = createSlice({
         addError: (state, action) => {
             state.nextId += 1;
             alertsAdapter.addOne(state, {
+                variant: 'danger',
                 ...action.payload,
                 message: `[${action.payload.name ?? 'Unknown'}] ${action.payload.message}`,
                 count: 1,
@@ -60,7 +61,13 @@ const alertsSlice = createSlice({
                 return;
             }
             state.nextId += 1;
-            alertsAdapter.addOne(state, { context, message: action.error.message ?? '', id: state.nextId, count: 1 });
+            alertsAdapter.addOne(state, {
+                context,
+                variant: 'danger',
+                message: action.error.message ?? '',
+                id: state.nextId,
+                count: 1
+            });
         })
             .addMatcher(isFulfilled, (state, action) => {
             const context = action.type.replace('/fulfilled', '');

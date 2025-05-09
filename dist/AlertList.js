@@ -1,3 +1,4 @@
+"use client";
 import { jsx as _jsx } from "react/jsx-runtime";
 import ContextAlert from "./ContextAlert";
 import { isFilterFunction } from "./utils";

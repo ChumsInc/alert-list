@@ -1,3 +1,4 @@
+"use client";
 import { jsx as _jsx, jsxs as _jsxs } from "react/jsx-runtime";
 import Alert from 'react-bootstrap/Alert';
 import Badge from "react-bootstrap/Badge";
