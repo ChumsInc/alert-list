@@ -1,6 +1,6 @@
 {
   "name": "@chumsinc/alert-list",
-  "version": "2.2.1",
+  "version": "2.3.0",
   "type": "module",
   "source": "./src/index.tsx",
   "main": "dist/index.umd.js",
