@@ -6,7 +6,7 @@ import {
     PayloadAction,
     SerializedError
 } from "@reduxjs/toolkit";
-import {StyledErrorAlert} from "./alert-types";
+import type {StyledErrorAlert} from "./alert-types.d.ts";
 
 export const alertsAdapter = createEntityAdapter<StyledErrorAlert, number>({
     selectId: (alert) => alert.id,

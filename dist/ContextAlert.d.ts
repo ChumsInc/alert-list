@@ -1,7 +1,8 @@
-import React from 'react';
-import { AlertProps } from 'react-bootstrap/Alert';
-import { StyledErrorAlert } from "./alert-types";
+import { ReactNode } from 'react';
+import { AlertProps, BadgeProps } from 'react-bootstrap';
+import { StyledErrorAlert } from './alert-types.js';
 export interface ContextAlertProps extends Pick<StyledErrorAlert, 'context' | 'count'>, AlertProps {
-    children?: React.ReactNode;
+    badgeProps?: BadgeProps;
+    children?: ReactNode;
 }
-export default function ContextAlert({ context, count, children, ...alertProps }: ContextAlertProps): import("react/jsx-runtime").JSX.Element;
+export default function ContextAlert({ context, count, badgeProps, children, ...alertProps }: ContextAlertProps): import("react/jsx-runtime").JSX.Element;

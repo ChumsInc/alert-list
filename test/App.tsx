@@ -1,6 +1,5 @@
-import React from 'react';
-import {useAppDispatch, useAppSelector} from "./configureStore";
-import {addAlert, AlertList, dismissAlert, ErrorAlert, selectAllAlerts} from "../src";
+import {useAppDispatch, useAppSelector} from "./configureStore.js";
+import {addAlert, AlertList, dismissAlert, ErrorAlert, selectAllAlerts} from "../src/index.js";
 import {Button} from "react-bootstrap";
 
 export default function App() {

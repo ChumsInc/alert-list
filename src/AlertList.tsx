@@ -1,8 +1,9 @@
 import React from 'react';
-import ContextAlert from "./ContextAlert";
-import {ContextFilter, StyledErrorAlert} from "./alert-types";
-import {isFilterFunction} from "./utils";
+import ContextAlert from "./ContextAlert.js";
+import type {ContextFilter, StyledErrorAlert} from "./alert-types.d.ts";
+import {isFilterFunction} from "./utils.js";
 import {AlertProps} from 'react-bootstrap/Alert'
+import {BadgeProps} from 'react-bootstrap/Badge'
 
 
 export interface AlertListProps {
@@ -10,9 +11,10 @@ export interface AlertListProps {
     contextFilter?: ContextFilter;
     onDismiss: (alert: StyledErrorAlert) => void;
     alertProps?: AlertProps;
+    badgeProps?: BadgeProps;
 }
 
-export default function AlertList({list, contextFilter, onDismiss, alertProps}: AlertListProps) {
+export default function AlertList({list, contextFilter, onDismiss, alertProps, badgeProps}: AlertListProps) {
     return (
         <div>
             {list
@@ -23,7 +25,7 @@ export default function AlertList({list, contextFilter, onDismiss, alertProps}: 
                             : errorAlert.context === contextFilter
                     ))
                 .map(alert => (
-                    <ContextAlert key={alert.id} {...alertProps}
+                    <ContextAlert key={alert.id} {...alertProps} badgeProps={badgeProps}
                                   variant={alert.variant} dismissible
                                   onClose={() => onDismiss(alert)}
                                   context={alert.context} count={alert.count}>
