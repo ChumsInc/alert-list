@@ -15,14 +15,16 @@ export default defineConfig({
             fileName: (format) => `index.${format}.js`
         },
         rollupOptions: {
-            external: ['react', 'react/jsx-runtime', 'react-dom', 'classnames', '@emotion/styled'],
+            external: ['react', 'react/jsx-runtime', 'react-dom', 'classnames', '@reduxjs/toolkit', 'numeral', 'react-bootstrap'],
             output: {
                 globals:{
                     react: 'React',
                     'react-dom': 'ReactDOM',
                     'react/jsx-runtime': 'jsxRuntime',
                     classnames: 'classNames',
-                    '@emotion/styled': 'styled'
+                    '@reduxjs/toolkit': 'ReduxToolkit',
+                    'numeral': 'numeral',
+                    'react-bootstrap': 'ReactBootstrap',
                 }
             }
         }
