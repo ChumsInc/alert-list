@@ -18,7 +18,7 @@ export default defineConfig({
         lib: {
             entry: resolve(cwd(), 'src/index.tsx'),
             name: 'AlertList',
-            fileName: (format) => `index.${format}.js`,
+            // fileName: (format) => `index.${format}.js`,
             formats: ['es', 'cjs'],
         },
         emptyOutDir: true,

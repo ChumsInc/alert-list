@@ -3,6 +3,21 @@
   "version": "2.3.0",
   "type": "module",
   "source": "src/index.ts",
+  "main": "dist/alert-list.cjs",
+  "module": "dist/alert-list.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/alert-list.js"
+      },
+      "require": {
+        "types": "./dist/index.d.ts",
+        "default": "./dist/alert-list.cjs"
+      }
+    }
+  },
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
@@ -16,10 +31,6 @@
     "numeral": "^2.0.6",
     "react": ">=18.1.0",
     "react-bootstrap": "^2.10.9",
-    "react-dom": ">=18.1.0"
-  },
-  "dependencies": {
-    "react": ">=18.1.0",
     "react-dom": ">=18.1.0"
   },
   "devDependencies": {
