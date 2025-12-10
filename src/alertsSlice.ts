@@ -3,12 +3,12 @@ import {
     createSlice,
     isFulfilled,
     isRejected,
-    PayloadAction,
-    SerializedError
+    type PayloadAction,
+    type SerializedError
 } from "@reduxjs/toolkit";
-import type {StyledErrorAlert} from "./alert-types.d.ts";
+import type {ErrorAlert} from "./types.ts";
 
-export const alertsAdapter = createEntityAdapter<StyledErrorAlert, number>({
+export const alertsAdapter = createEntityAdapter<ErrorAlert, number>({
     selectId: (alert) => alert.id,
     sortComparer: (a, b) => a.id - b.id,
 });
@@ -20,7 +20,7 @@ export interface AlertsExtraState {
     nextId: number;
 }
 
-export const alertsExtraState: AlertsExtraState = {
+const alertsExtraState: AlertsExtraState = {
     nextId: 0,
 }
 
@@ -28,7 +28,7 @@ const alertsSlice = createSlice({
     name: 'alerts',
     initialState: alertsAdapter.getInitialState(alertsExtraState),
     reducers: {
-        addAlert: (state, action: PayloadAction<Partial<StyledErrorAlert & Pick<StyledErrorAlert, 'message'>>>) => {
+        addAlert: (state, action: PayloadAction<Partial<ErrorAlert & Pick<ErrorAlert, 'message'>>>) => {
             if (action.payload.context) {
                 const [alert] = alertsSelectors.selectAll(state).filter((alert) => alert.context === action.payload.context);
                 if (alert) {
@@ -54,7 +54,7 @@ const alertsSlice = createSlice({
                 id: state.nextId
             });
         },
-        dismissAlert: (state, action: PayloadAction<Partial<Pick<StyledErrorAlert, 'id' | 'context'>>>) => {
+        dismissAlert: (state, action: PayloadAction<Partial<Pick<ErrorAlert, 'id' | 'context'>>>) => {
             if (action.payload.id) {
                 alertsAdapter.removeOne(state, action.payload.id);
                 return;

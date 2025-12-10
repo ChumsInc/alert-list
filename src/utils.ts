@@ -1,4 +1,4 @@
-import type {BasicAlert, ContextFilter, ContextFilterFunction, ErrorAlert} from "./alert-types.d.ts";
+import type {BasicAlert, ContextFilter, ContextFilterFunction, ErrorAlert} from "./types.ts";
 
 export function isErrorAlert(alert: BasicAlert | ErrorAlert): alert is ErrorAlert {
     return (alert as ErrorAlert).id !== undefined;

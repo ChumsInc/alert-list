@@ -1,19 +1,19 @@
-import { createEntityAdapter as m, createSlice as f, isRejected as p, isFulfilled as x } from "@reduxjs/toolkit";
-import { jsxs as s, jsx as c } from "react/jsx-runtime";
-import { Alert as a, Badge as A } from "react-bootstrap";
-import y from "numeral";
-const o = m({
+import { createEntityAdapter as p, createSlice as f, isRejected as x, isFulfilled as A } from "@reduxjs/toolkit";
+import { jsxs as c, jsx as i } from "react/jsx-runtime";
+import { Alert as a, Badge as y } from "react-bootstrap";
+import g from "numeral";
+const o = p({
   selectId: (t) => t.id,
   sortComparer: (t, e) => t.id - e.id
-}), i = o.getSelectors(), g = {
+}), s = o.getSelectors(), I = {
   nextId: 0
 }, u = f({
   name: "alerts",
-  initialState: o.getInitialState(g),
+  initialState: o.getInitialState(I),
   reducers: {
     addAlert: (t, e) => {
       if (e.payload.context) {
-        const [r] = i.selectAll(t).filter((l) => l.context === e.payload.context);
+        const [r] = s.selectAll(t).filter((l) => l.context === e.payload.context);
         if (r) {
           o.updateOne(t, { id: r.id, changes: { count: r.count + 1 } });
           return;
@@ -41,7 +41,7 @@ const o = m({
         return;
       }
       if (e.payload.context) {
-        const [r] = i.selectAll(t).filter((l) => l.context === e.payload.context);
+        const [r] = s.selectAll(t).filter((l) => l.context === e.payload.context);
         if (r) {
           o.removeOne(t, r.id);
           return;
@@ -50,8 +50,8 @@ const o = m({
     }
   },
   extraReducers: (t) => {
-    t.addMatcher(p, (e, r) => {
-      const l = r.type.replace("/rejected", ""), [d] = i.selectAll(e).filter((n) => n.context === l);
+    t.addMatcher(x, (e, r) => {
+      const l = r.type.replace("/rejected", ""), [d] = s.selectAll(e).filter((n) => n.context === l);
       if (d) {
         o.updateOne(e, { id: d.id, changes: { count: d.count + 1 } });
         return;
@@ -63,8 +63,8 @@ const o = m({
         id: e.nextId,
         count: 1
       });
-    }).addMatcher(x, (e, r) => {
-      const l = r.type.replace("/fulfilled", ""), [d] = i.selectAll(e).filter((n) => n.context === l);
+    }).addMatcher(A, (e, r) => {
+      const l = r.type.replace("/fulfilled", ""), [d] = s.selectAll(e).filter((n) => n.context === l);
       if (d) {
         o.removeOne(e, d.id);
         return;
@@ -72,39 +72,40 @@ const o = m({
     });
   },
   selectors: {
-    selectAllAlerts: (t) => i.selectAll(t),
-    selectAlertById: (t, e) => i.selectById(t, e),
+    selectAllAlerts: (t) => s.selectAll(t),
+    selectAlertById: (t, e) => s.selectById(t, e),
     selectAlertByContext: (t, e) => {
-      const [r] = i.selectAll(t).filter((l) => l.context === e);
+      const [r] = s.selectAll(t).filter((l) => l.context === e);
       return r ?? null;
     }
   }
 }), {
-  addAlert: C,
-  dismissAlert: j
+  addAlert: j,
+  dismissAlert: E
 } = u.actions, {
-  selectAllAlerts: E,
-  selectAlertById: w,
-  selectAlertByContext: k
+  selectAllAlerts: w,
+  selectAlertById: N,
+  selectAlertByContext: b
 } = u.selectors;
-function I({ context: t, count: e, badgeProps: r, children: l, ...d }) {
-  return r?.pill, /* @__PURE__ */ s(a, { ...d, children: [
-    !!t && /* @__PURE__ */ s(a.Heading, { children: [
+function m({ context: t, count: e, badgeProps: r, children: l, ...d }) {
+  return /* @__PURE__ */ c(a, { ...d, children: [
+    !!t && /* @__PURE__ */ c(a.Heading, { children: [
       t,
-      e > 1 && /* @__PURE__ */ c(A, { bg: d.variant, pill: !0, className: "ms-1", ...r, children: y(e).format("0,0") })
+      e > 1 && /* @__PURE__ */ i(y, { bg: d.variant, pill: !0, className: "ms-1", ...r, children: g(e).format("0,0") })
     ] }),
     l
   ] });
 }
-function M(t) {
+m.displayName = "ContextAlert";
+function k(t) {
   return t.id !== void 0;
 }
 function v(t) {
   return typeof t == "function";
 }
-function R({ list: t, contextFilter: e, onDismiss: r, alertProps: l, badgeProps: d }) {
-  return /* @__PURE__ */ c("div", { children: t.filter((n) => !e || (v(e) ? e(n) : n.context === e)).map((n) => /* @__PURE__ */ c(
-    I,
+function h({ list: t, contextFilter: e, onDismiss: r, alertProps: l, badgeProps: d }) {
+  return /* @__PURE__ */ i("div", { children: t.filter((n) => !e || (v(e) ? e(n) : n.context === e)).map((n) => /* @__PURE__ */ i(
+    m,
     {
       ...l,
       badgeProps: d,
@@ -118,16 +119,16 @@ function R({ list: t, contextFilter: e, onDismiss: r, alertProps: l, badgeProps:
     n.id
   )) });
 }
+h.displayName = "AlertList";
 export {
-  R as AlertList,
-  C as addAlert,
+  h as AlertList,
+  j as addAlert,
   o as alertsAdapter,
-  g as alertsExtraState,
   u as alertsSlice,
-  j as dismissAlert,
-  M as isErrorAlert,
+  E as dismissAlert,
+  k as isErrorAlert,
   v as isFilterFunction,
-  k as selectAlertByContext,
-  w as selectAlertById,
-  E as selectAllAlerts
+  b as selectAlertByContext,
+  N as selectAlertById,
+  w as selectAllAlerts
 };

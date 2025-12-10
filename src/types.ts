@@ -9,14 +9,13 @@ export interface BasicAlert {
 
 export interface ErrorAlert {
     id: number;
+    variant?: Variant
     context?: string;
     message: string;
     count: number;
 }
 
-export interface StyledErrorAlert extends ErrorAlert {
-    variant?: Variant
-}
+export type StyledErrorAlert = ErrorAlert
 
 export type ContextFilterFunction = (alerts: StyledErrorAlert) => boolean;
 export type ContextFilter = string | ContextFilterFunction;

@@ -1,20 +1,19 @@
-import React from 'react';
 import ContextAlert from "./ContextAlert.js";
-import type {ContextFilter, StyledErrorAlert} from "./alert-types.d.ts";
+import type {ContextFilter, ErrorAlert} from "./types.ts";
 import {isFilterFunction} from "./utils.js";
-import {AlertProps} from 'react-bootstrap/Alert'
-import {BadgeProps} from 'react-bootstrap/Badge'
+import type {AlertProps} from 'react-bootstrap/Alert'
+import type {BadgeProps} from 'react-bootstrap/Badge'
 
 
 export interface AlertListProps {
-    list: StyledErrorAlert[];
+    list: ErrorAlert[];
     contextFilter?: ContextFilter;
-    onDismiss: (alert: StyledErrorAlert) => void;
+    onDismiss: (alert: ErrorAlert) => void;
     alertProps?: AlertProps;
     badgeProps?: BadgeProps;
 }
 
-export default function AlertList({list, contextFilter, onDismiss, alertProps, badgeProps}: AlertListProps) {
+function AlertList({list, contextFilter, onDismiss, alertProps, badgeProps}: AlertListProps) {
     return (
         <div>
             {list
@@ -35,3 +34,5 @@ export default function AlertList({list, contextFilter, onDismiss, alertProps, b
         </div>
     )
 }
+AlertList.displayName = 'AlertList';
+export default AlertList;

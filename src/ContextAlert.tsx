@@ -1,15 +1,14 @@
-import React, {ReactNode} from 'react';
+import type {ReactNode} from 'react';
 import {Alert, type AlertProps, Badge, type BadgeProps} from 'react-bootstrap'
 import numeral from "numeral";
-import {StyledErrorAlert} from "./alert-types.js";
+import type {ErrorAlert} from "./types.ts";
 
-export interface ContextAlertProps extends Pick<StyledErrorAlert, 'context' | 'count'>, AlertProps {
+export interface ContextAlertProps extends Pick<ErrorAlert, 'context' | 'count'>, AlertProps {
     badgeProps?: BadgeProps
     children?: ReactNode;
 }
 
-export default function ContextAlert({context, count, badgeProps, children, ...alertProps}: ContextAlertProps) {
-    const pill = badgeProps?.pill ?? undefined;
+function ContextAlert({context, count, badgeProps, children, ...alertProps}: ContextAlertProps) {
     return (
         <Alert {...alertProps}>
             {!!context && (
@@ -24,3 +23,5 @@ export default function ContextAlert({context, count, badgeProps, children, ...a
         </Alert>
     )
 }
+ContextAlert.displayName = 'ContextAlert';
+export default ContextAlert;

@@ -2,10 +2,14 @@
   "name": "@chumsinc/alert-list",
   "version": "2.3.0",
   "type": "module",
-  "source": "./src/index.tsx",
-  "main": "dist/index.umd.js",
-  "module": "dist/index.es.js",
-  "types": "dist/index.d.ts",
+  "source": "src/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "build-dts": "tsc --declaration --emitDeclarationOnly",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
   "peerDependencies": {
     "@reduxjs/toolkit": "^2.5.1",
     "classnames": "*",
@@ -14,50 +18,34 @@
     "react-bootstrap": "^2.10.9",
     "react-dom": ">=18.1.0"
   },
-  "scripts": {
-    "dev": "vite",
-    "build": "vite build",
-    "lint": "eslint .",
-    "preview": "vite preview",
-    "version": "auto-changelog -p && git add CHANGELOG.md"
-  },
-  "browserslist": {
-    "production": [
-      ">0.2%",
-      "not dead",
-      "not op_mini all"
-    ],
-    "development": [
-      "last 1 chrome version",
-      "last 1 firefox version",
-      "last 1 safari version"
-    ]
+  "dependencies": {
+    "react": ">=18.1.0",
+    "react-dom": ">=18.1.0"
   },
   "devDependencies": {
-    "@emotion/styled": "^11.14.0",
-    "@eslint/js": "^9.30.1",
-    "@reduxjs/toolkit": "^2.9.2",
-    "@types/node": "^24.1.0",
+    "@eslint/js": "^9.39.1",
+    "@reduxjs/toolkit": "^2.11.1",
+    "@types/node": "^24.10.1",
     "@types/numeral": "^2.0.5",
-    "@types/react": "^19.2.2",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^5.1.0",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^5.1.1",
     "auto-changelog": "^2.4.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
-    "eslint": "^9.30.1",
+    "eslint": "^9.39.1",
     "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "globals": "^16.3.0",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
     "numeral": "^2.0.6",
-    "react": "^19.2.0",
+    "react": "^19.2.1",
     "react-bootstrap": "^2.10.10",
-    "react-dom": "^19.2.0",
+    "react-dom": "^19.2.1",
     "react-redux": "^9.2.0",
     "redux": "^5.0.1",
     "typescript": "^5.9.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.4",
+    "typescript-eslint": "^8.46.4",
+    "vite": "^7.2.4",
     "vite-plugin-dts": "^4.5.4"
   },
   "auto-changelog": {
