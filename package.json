@@ -20,8 +20,9 @@
   },
   "scripts": {
     "dev": "vite",
-    "build": "tsc -b && vite build",
-    "build-dts": "tsc --declaration --emitDeclarationOnly",
+    "build": "npm run build-vite && npm run build-dts",
+    "build-vite": "tsc -b && vite build",
+    "build-dts": "tsc -p tsconfig-build.json",
     "lint": "eslint .",
     "preview": "vite preview"
   },
@@ -34,7 +35,7 @@
     "react-dom": ">=18.1.0"
   },
   "devDependencies": {
-    "@eslint/js": "^9.39.1",
+    "@eslint/js": "^10.0.1",
     "@reduxjs/toolkit": "^2.11.1",
     "@types/node": "^24.10.1",
     "@types/numeral": "^2.0.5",
@@ -44,10 +45,9 @@
     "auto-changelog": "^2.4.0",
     "bootstrap": "^5.3.7",
     "bootstrap-icons": "^1.13.1",
-    "eslint": "^9.39.1",
-    "eslint-plugin-react-hooks": "^7.0.1",
-    "eslint-plugin-react-refresh": "^0.4.24",
-    "globals": "^16.5.0",
+    "eslint": "^10.0.2",
+    "eslint-plugin-react-refresh": "^0.5.2",
+    "globals": "^17.4.0",
     "numeral": "^2.0.6",
     "react": "^19.2.1",
     "react-bootstrap": "^2.10.10",
@@ -56,8 +56,7 @@
     "redux": "^5.0.1",
     "typescript": "^5.9.3",
     "typescript-eslint": "^8.46.4",
-    "vite": "^7.2.4",
-    "vite-plugin-dts": "^4.5.4"
+    "vite": "^7.2.4"
   },
   "auto-changelog": {
     "template": "changelog-template.hbs",

@@ -1,6 +1,6 @@
-import { ContextFilter, ErrorAlert } from './types.ts';
-import { AlertProps } from 'react-bootstrap/Alert';
-import { BadgeProps } from 'react-bootstrap/Badge';
+import type { ContextFilter, ErrorAlert } from "./types.ts";
+import type { AlertProps } from 'react-bootstrap/Alert';
+import type { BadgeProps } from 'react-bootstrap/Badge';
 export interface AlertListProps {
     list: ErrorAlert[];
     contextFilter?: ContextFilter;

@@ -1,6 +1,6 @@
-import { ReactNode } from 'react';
-import { AlertProps, BadgeProps } from 'react-bootstrap';
-import { ErrorAlert } from './types.ts';
+import type { ReactNode } from 'react';
+import { type AlertProps, type BadgeProps } from 'react-bootstrap';
+import type { ErrorAlert } from "./types.ts";
 export interface ContextAlertProps extends Pick<ErrorAlert, 'context' | 'count'>, AlertProps {
     badgeProps?: BadgeProps;
     children?: ReactNode;

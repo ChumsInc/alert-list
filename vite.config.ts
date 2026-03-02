@@ -1,6 +1,5 @@
 import {defineConfig} from 'vite'
 import react from '@vitejs/plugin-react'
-import dts from 'vite-plugin-dts';
 import {resolve} from 'node:path'
 import {cwd} from "node:process";
 
@@ -8,11 +7,6 @@ import {cwd} from "node:process";
 export default defineConfig({
     plugins: [
         react({}),
-        dts({
-            // rollupTypes: true,
-            // entryRoot: resolve(cwd(), 'src/index.tsx'),
-            include: ['src'],
-        })
     ],
     build: {
         lib: {
